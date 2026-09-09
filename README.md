@@ -1,48 +1,308 @@
-Logistics Data Analyst Internship
+# Logistics Data Analyst Internship
 
-A practical logistics data analytics project completed as part of a Data Analyst Internship. The project focuses on logistics data collection, cleaning, preprocessing, data quality validation, and operational analysis using Python and Pandas.
+A practical logistics data analytics project completed as part of a Data
+Analyst Internship. The project focuses on data collection, cleaning,
+preprocessing, validation, quality analysis, and operational insights
+using Python and Pandas.
 
-Project Overview
+## Project Overview
 
-This project analyzes historical logistics delivery data to identify delivery performance, shipment delays, data quality issues, freight-cost anomalies, and country/shipment-mode performance.
+This project uses a historical supply-chain delivery dataset to analyze
+logistics performance and prepare reliable data for further analytics.
 
-The project follows a structured data analytics workflow:
+**Workflow:** Raw Data → Data Cleaning → Data Validation → Data Quality
+Analysis → Business Insights
 
-Raw Data → Data Cleaning → Data Validation → Quality Analysis → Business Insights
+The dataset contains **10,324 shipment records and 35 original columns**
+covering shipment details, vendors, countries, products, delivery dates,
+quantities, values, weights, and freight costs.
 
-Objectives
-Clean and preprocess raw logistics data
-Handle missing and inconsistent values
-Standardize column names and data types
-Convert and validate date fields
-Calculate delivery performance metrics
-Identify potential freight-cost outliers
-Calculate cost-per-unit metrics
-Analyze shipment performance by country and shipment mode
-Validate the final cleaned dataset
-Document the complete preprocessing methodology
-Dataset
+## Objectives
 
-The project uses a historical supply-chain and logistics delivery dataset containing 10,324 shipment records and 35 original columns.
+-   Clean and preprocess raw logistics data
+-   Standardize column names and data formats
+-   Handle missing and inconsistent values
+-   Convert numeric and date fields into usable formats
+-   Identify duplicate records
+-   Calculate delivery performance metrics
+-   Identify potential freight-cost outliers
+-   Calculate cost-per-unit metrics
+-   Validate the cleaned dataset
+-   Analyze delivery performance by country and shipment mode
+-   Document the complete preprocessing methodology
 
-The dataset contains information related to:
+## Dataset
 
-Shipment identification
-Project and purchase order information
-Country
-Vendor
-Shipment mode
-Product information
-Delivery dates
-Quantity and value
-Weight
-Freight cost
-Insurance cost
-Manufacturing site
+The project uses a historical supply-chain and logistics delivery
+dataset containing information about shipments, projects, purchase
+orders, countries, vendors, shipment modes, products, delivery dates,
+quantities, values, weights, freight costs, and manufacturing sites.
 
-The cleaned dataset contains 10,324 records and 38 columns, including additional analytical metrics created during preprocessing.
+The raw Excel dataset is used as the source for preprocessing. The
+cleaned CSV is the main analysis-ready output.
 
-Project Structure
+### Dataset Size
+
+  Metric                Value
+  ------------------ --------
+  Original records     10,324
+  Original columns         35
+  Final columns            38
+  Duplicate rows            0
+  Final records        10,324
+
+## Data Cleaning & Preprocessing
+
+The `data_cleaning.py` script performs the main preprocessing pipeline.
+
+### Column Name Cleaning
+
+Column names are stripped of unnecessary whitespace and a known encoding
+artifact in the ID column is removed.
+
+### Duplicate Detection
+
+Duplicate records are checked before and after cleaning.
+
+**Result:** 0 duplicate rows.
+
+### Missing Value Standardization
+
+Common representations such as blank strings, `NA`, `N/A`, `NULL`, and
+similar values are standardized to Pandas `NaN`.
+
+### Missing Shipment Mode
+
+The original dataset contained **360 missing Shipment Mode values**.
+These were replaced with `Unknown` rather than deleting the records.
+
+### Missing Dosage
+
+The original dataset contained **1,736 missing Dosage values**. These
+were replaced with `Unknown`.
+
+### Numeric Conversion
+
+Important numeric columns are converted using Pandas numeric conversion,
+including:
+
+-   Line Item Quantity
+-   Line Item Value
+-   Pack Price
+-   Unit Price
+-   Line Item Insurance (USD)
+-   Weight (Kilograms)
+-   Freight Cost (USD)
+
+### Date Conversion
+
+The following date fields are converted to datetime values:
+
+-   PQ First Sent to Client Date
+-   PO Sent to Vendor Date
+-   Scheduled Delivery Date
+-   Delivered to Client Date
+-   Delivery Recorded Date
+
+### Delivery Delay
+
+A `Delivery Delay Days` metric is created:
+
+**Delivery Delay Days = Delivered to Client Date − Scheduled Delivery
+Date**
+
+Negative values indicate early delivery, zero indicates delivery on
+schedule, and positive values indicate late delivery.
+
+### On-Time Delivery
+
+An `On Time Delivery` flag is created:
+
+-   Delay \<= 0 → `Yes`
+-   Delay \> 0 → `No`
+
+### Freight Cost per KG
+
+A normalized freight metric is calculated:
+
+**Freight Cost per KG = Freight Cost (USD) / Weight (Kilograms)**
+
+The calculation is performed only when weight is greater than zero.
+
+### Freight Cost Outlier Detection
+
+Potential freight-cost outliers are identified using the Interquartile
+Range (IQR) method.
+
+**Upper Limit = Q3 + 1.5 × IQR**
+
+Records above the upper limit are flagged as `Potential Outlier`. They
+are not automatically deleted because an extreme value may be a
+legitimate business event or may require further investigation.
+
+### Cost per Unit
+
+A `Cost per Unit` metric is calculated:
+
+**Cost per Unit = Line Item Value / Line Item Quantity**
+
+The calculation is performed only when quantity is greater than zero.
+
+### Text Encoding Correction
+
+A known country-name encoding issue was corrected:
+
+`CÃ_x0083_Â´te d'Ivoire` → `Côte d'Ivoire`
+
+### Metadata Removal
+
+Temporary local metadata columns such as `Load_Date` and `Source_System`
+are removed when present because they are not required for the analysis.
+
+## Data Validation
+
+The `validate_cleaned_data.py` script checks:
+
+-   Dataset dimensions
+-   Data types
+-   Delivery date ranges
+-   Delivery delay statistics
+-   On-time versus late deliveries
+-   Freight cost per kilogram statistics
+-   Cost per unit statistics
+-   Remaining missing values
+-   Duplicate records
+
+The validated cleaned dataset contains **10,324 records and 38
+columns**.
+
+## Key Data Quality Findings
+
+### Missing Values
+
+Important missing-value counts include:
+
+  Column                           Missing Records
+  ------------------------------ -----------------
+  PO Sent to Vendor Date                     5,732
+  Freight Cost per KG                        4,150
+  Freight Cost (USD)                         4,126
+  Weight (Kilograms)                         3,952
+  PQ First Sent to Client Date               2,681
+  Line Item Insurance (USD)                    287
+
+These values were retained where reliable imputation could not be
+justified.
+
+### Zero Values
+
+  Field                  Zero Values
+  -------------------- -------------
+  Line Item Quantity               0
+  Line Item Value                 17
+  Unit Price                     103
+  Weight                           1
+  Freight Cost                     0
+
+These were treated as data-quality observations rather than blindly
+removed.
+
+## Delivery Performance
+
+Overall results:
+
+-   **Total shipments:** 10,324
+-   **On-time deliveries:** 9,138
+-   **Late deliveries:** 1,186
+-   **On-time delivery rate:** 88.51%
+-   **Late delivery rate:** 11.49%
+
+### Delivery Delay Statistics
+
+  Metric       Days
+  --------- -------
+  Mean        -6.02
+  Median          0
+  Minimum      -372
+  Maximum       192
+
+The negative mean indicates that many shipments were delivered before
+their scheduled dates, while a smaller number of highly delayed
+shipments contribute to the wide range.
+
+## Shipment Mode Performance
+
+  Shipment Mode     Shipments   Average Delay   On-Time Rate
+  --------------- ----------- --------------- --------------
+  Air                   6,113           -3.76         90.40%
+  Air Charter             650          -19.04         88.46%
+  Ocean                   371            5.87         82.48%
+  Truck                 2,830           -9.92         83.92%
+  Unknown                 360           -2.51         98.89%
+
+Among the identified transportation modes, Air has the highest on-time
+rate at **90.40%**, while Ocean has the lowest at **82.48%**. The
+Unknown category represents missing source information and should
+therefore be interpreted cautiously.
+
+## Country Performance
+
+Selected results:
+
+  Country           Shipments   Average Delay   On-Time Rate
+  --------------- ----------- --------------- --------------
+  South Africa          1,406          -12.22         91.82%
+  Nigeria               1,194          -11.22         88.11%
+  Côte d'Ivoire         1,083           -5.38         87.63%
+  Uganda                  779           -7.58         87.42%
+  Vietnam                 688           -0.35         99.13%
+  Zambia                  683           -5.23         84.19%
+  Haiti                   655           -2.43         90.53%
+  Mozambique              631           -1.21         81.62%
+  Zimbabwe                538          -11.01         85.69%
+  Congo, DRC              333           11.24         75.08%
+
+Congo, DRC shows comparatively weak delivery performance, with a
+**75.08% on-time rate** and an average delay of **11.24 days**.
+
+## Freight Cost & Cost Outliers
+
+Potential freight-cost anomalies were detected using the IQR method.
+
+Examples from the analysis include:
+
+-   Nigeria, Air Charter: **\$31,087.71/kg**
+-   Nigeria, Air Charter: **\$22,590.31/kg**
+-   Nigeria, Air: **\$19,480.97/kg**
+-   Côte d'Ivoire, Unknown mode: **\$9,789.07/kg**
+
+These records should be investigated before being used for business
+decisions. An outlier can represent a genuine special shipment, unusual
+transportation conditions, or a data-entry problem.
+
+Potential cost-per-unit outliers were also identified, including
+high-cost HRDT records.
+
+## Business Insights
+
+1.  Overall on-time delivery performance is **88.51%**, but the 11.49%
+    late-delivery rate remains an important operational area to
+    investigate.
+2.  Ocean shipments have the lowest on-time rate among the identified
+    shipment modes.
+3.  Congo, DRC has comparatively weak delivery performance and positive
+    average delay.
+4.  Freight cost per kilogram contains extreme values, especially for
+    very low-weight shipments.
+5.  Missing weight and freight-cost information limits some
+    cost-efficiency analysis.
+6.  Missing shipment-mode information should be investigated at the
+    source; labeling it `Unknown` preserves the records but does not
+    explain the missing data.
+
+## Project Structure
+
+``` text
 logistics-data-analyst-internship/
 │
 ├── data/
@@ -60,268 +320,98 @@ logistics-data-analyst-internship/
 │
 ├── .gitignore
 └── README.md
-Data Cleaning Process
+```
 
-The data_cleaning.py script performs the main preprocessing workflow.
+## Technologies Used
 
-1. Column Name Cleaning
+-   Python
+-   Pandas
+-   NumPy
+-   openpyxl
+-   Git
+-   GitHub
+-   Visual Studio Code
 
-Column names are stripped of unnecessary spaces and known encoding issues are corrected.
+## How to Run
 
-2. Duplicate Detection
+Install the required libraries:
 
-Duplicate records are checked and removed if present.
-
-The dataset contained 0 duplicate rows.
-
-3. Missing Value Handling
-
-Missing values are standardized and selected categorical fields are assigned meaningful values.
-
-For example:
-
-Missing Shipment Mode → Unknown
-Missing Dosage → Unknown
-
-Other missing values, such as freight cost, weight, and vendor-related dates, are retained as missing because replacing them with arbitrary values could distort the analysis.
-
-4. Numeric Data Conversion
-
-Important financial and quantity fields are converted into numeric data types, including:
-
-Line Item Quantity
-Line Item Value
-Pack Price
-Unit Price
-Line Item Insurance
-Weight
-Freight Cost
-5. Date Conversion
-
-The following fields are converted to datetime format:
-
-PQ First Sent to Client Date
-PO Sent to Vendor Date
-Scheduled Delivery Date
-Delivered to Client Date
-Delivery Recorded Date
-6. Delivery Delay Calculation
-
-A new metric called Delivery Delay Days is created:
-
-Delivery Delay Days = Delivered to Client Date − Scheduled Delivery Date
-
-A negative value indicates delivery before the scheduled date, while a positive value indicates a delay.
-
-7. On-Time Delivery Flag
-
-A new On Time Delivery field is created.
-
-Shipments delivered on or before the scheduled delivery date are classified as:
-
-Yes
-
-Shipments delivered after the scheduled delivery date are classified as:
-
-No
-
-8. Freight Cost per KG
-
-A new metric is calculated:
-
-Freight Cost per KG = Freight Cost (USD) / Weight (Kilograms)
-
-The calculation is performed only when the shipment has a positive weight.
-
-9. Freight Cost Outlier Detection
-
-Potential freight-cost outliers are identified using the Interquartile Range (IQR) method.
-
-The upper threshold is calculated as:
-
-Upper Limit = Q3 + 1.5 × IQR
-
-Records above this threshold are flagged as:
-
-Potential Outlier
-
-These records are flagged rather than automatically deleted because an unusually high freight cost may represent a genuine logistics event rather than an error.
-
-10. Cost per Unit
-
-A new metric is calculated:
-
-Cost per Unit = Line Item Value / Line Item Quantity
-
-The calculation is performed only when the line item quantity is greater than zero.
-
-11. Text Encoding Correction
-
-Known encoding problems in country names are corrected, including the incorrect representation of Côte d'Ivoire.
-
-Data Validation
-
-The validate_cleaned_data.py script validates the cleaned dataset by checking:
-
-Dataset dimensions
-Data types
-Date ranges
-Delivery delay statistics
-On-time delivery counts
-Freight cost per KG statistics
-Cost per unit statistics
-Remaining missing values
-Duplicate records
-
-The final validation confirmed:
-
-10,324 records
-38 columns
-0 duplicate rows
-Scheduled delivery dates ranging from 2006 to 2015
-On-time deliveries: 9,138
-Delayed deliveries: 1,186
-Overall on-time delivery rate: 88.51%
-Quality Analysis
-
-The quality_analysis.py script performs additional data-quality and logistics-performance analysis.
-
-Key checks include:
-
-Delivery performance
-Delivery delays
-Zero quantities and values
-Zero unit prices
-Zero weights
-Freight-cost outliers
-Cost-per-unit outliers
-Missing-value analysis
-Shipment-mode performance
-Country-level performance
-Key Findings
-Delivery Performance
-
-The dataset contains:
-
-88.51% on-time deliveries
-11.49% delayed deliveries
-
-This indicates generally strong delivery performance, but the delayed shipments still represent a significant operational area for improvement.
-
-Shipment Mode Performance
-
-The analysis shows differences in delivery performance across shipment modes.
-
-Shipment Mode	Shipments	On-Time Rate
-Air	6,113	90.40%
-Air Charter	650	88.46%
-Ocean	371	82.48%
-Truck	2,830	83.92%
-Unknown	360	98.89%
-
-The Unknown category should be interpreted carefully because missing shipment-mode information can distort comparisons.
-
-Country Performance
-
-There are also significant differences between countries.
-
-For example:
-
-Vietnam recorded an on-time rate of 99.13%
-South Africa recorded 91.82%
-Congo, DRC recorded 75.08%
-Mozambique recorded 81.62%
-
-Congo, DRC therefore represents an important area for further investigation because it combines a relatively low on-time rate with an average positive delivery delay.
-
-Data Quality Issues Identified
-
-The analysis identified several important data-quality issues:
-
-Missing vendor-related dates
-Missing weight values
-Missing freight costs
-Missing insurance values
-Zero unit prices
-Zero line-item values
-Potential freight-cost outliers
-Potential cost-per-unit outliers
-Previously inconsistent country encoding
-Missing shipment-mode values
-
-Rather than blindly deleting these records, the preprocessing pipeline distinguishes between values that can safely be standardized and values that should remain missing for further investigation.
-
-Technologies Used
-Python
-Pandas
-NumPy
-Jupyter/VS Code
-Git
-GitHub
-Microsoft Excel
-How to Run the Project
-
-Clone the repository and navigate to the project directory.
-
-Install the required Python libraries:
-
+``` bash
 pip install pandas numpy openpyxl
+```
 
-Run the data-cleaning script:
+Run the cleaning pipeline:
 
+``` bash
 python scripts/data_cleaning.py
+```
 
 Validate the cleaned dataset:
 
+``` bash
 python scripts/validate_cleaned_data.py
+```
 
-Run the data-quality analysis:
+Run quality analysis:
 
+``` bash
 python scripts/quality_analysis.py
+```
 
-Run the logistics analysis:
+Run logistics analysis:
 
+``` bash
 python scripts/logistics_analysis.py
-Reports
+```
 
-The reports folder contains the internship documentation:
+## Reports
 
-Week 1 – Strategic Planning for Logistics
-Week 2 – Data Cleaning and Preprocessing for Logistics Analysis
+The `reports` folder contains:
 
-These reports explain the business context, analytical approach, preprocessing methodology, and findings.
+-   **Week 1 -- Strategic Planning & Logistics Analysis**
+-   **Week 2 -- Data Cleaning & Preprocessing for Logistics Analysis**
 
-Business Value
+The Week 2 report documents the data collection approach, preprocessing
+methodology, missing-value handling, outlier detection, Python
+implementation, validation, and reflection.
 
-High-quality logistics data is essential for reliable decision-making.
+## Limitations
 
-Accurate preprocessing enables organizations to:
+-   The dataset contains historical logistics records and should not
+    automatically be interpreted as current operational performance.
+-   Several operational and freight-related fields contain missing
+    values.
+-   Potential outliers are flagged rather than automatically removed.
+-   `Unknown` shipment mode represents missing source information, not a
+    real transportation mode.
+-   Additional business context would be required to determine the root
+    causes of delivery delays and freight-cost anomalies.
 
-Monitor delivery performance
-Identify problematic shipment modes
-Detect high-risk countries
-Investigate unusual freight costs
-Improve logistics planning
-Reduce reporting errors
-Build reliable dashboards and KPIs
-Support data-driven operational decisions
-Future Improvements
+## Future Improvements
 
-The project can be extended by developing:
+-   Build an interactive Power BI dashboard
+-   Analyze monthly delivery trends
+-   Create vendor performance scorecards
+-   Perform route and country risk analysis
+-   Investigate root causes of major delays
+-   Analyze freight-cost efficiency
+-   Build predictive models for late-delivery risk
 
-Power BI logistics dashboards
-Vendor performance analysis
-Monthly delivery trends
-Freight-cost benchmarking
-Country risk analysis
-Shipment-mode optimization
-Vendor-level KPIs
-Predictive delivery-delay models
-Author
+## Conclusion
 
-Nikita Bhandari
+This project demonstrates an end-to-end data preprocessing and logistics
+analytics workflow. The approach focuses on preserving useful
+information, clearly handling unknown values, validating
+transformations, calculating meaningful logistics KPIs, and flagging
+anomalies for further investigation.
 
-B.Sc. Information Technology
-Data Analytics | Python | SQL | Excel | Power BI
+The cleaned dataset provides a reliable foundation for future dashboard
+development, business intelligence, and advanced logistics analysis.
+
+## Author
+
+**Nikita Bhandari**
+
+Data Analyst \| Python \| Pandas \| SQL \| Excel \| Power BI
 
 GitHub: https://github.com/bhandari-nikita

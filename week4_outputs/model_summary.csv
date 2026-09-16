@@ -1,0 +1,8 @@
+Metric,Value
+Total Records,10324.0
+Training Records,8259.0
+Testing Records,2065.0
+Number of Features,17.0
+MAE (Days),10.903814640110381
+RMSE (Days),24.28827853599865
+R-Squared,0.278774774949321

@@ -1,0 +1,244 @@
+Feature,Importance
+categorical__Shipment Mode_Air,0.15535569247824071
+numeric__Pack Price,0.10767813895377426
+numeric__Line Item Quantity,0.10330719380185407
+categorical__Vendor_S. BUYS WHOLESALER,0.08158285409070469
+numeric__Freight Cost (USD),0.07344673550510646
+numeric__Line Item Insurance (USD),0.07059805373877873
+numeric__Line Item Value,0.0630102400320728
+numeric__Unit Price,0.05578605588530805
+numeric__Weight (Kilograms),0.04430445679873553
+"categorical__Country_Congo, DRC",0.029417818985072838
+categorical__Shipment Mode_Air Charter,0.017397145065136004
+categorical__Country_Guyana,0.014059807799434873
+categorical__Fulfill Via_From RDC,0.01170065076293781
+"categorical__Manufacturing Site_Aurobindo Unit III, India",0.011684277713659718
+categorical__Sub Classification_Pediatric,0.010500400640718444
+categorical__Vendor INCO Term_N/A - From RDC,0.010397391474528428
+categorical__Fulfill Via_Direct Drop,0.010284662895198042
+categorical__Shipment Mode_Truck,0.009080103504722324
+"categorical__Manufacturing Site_BMS Meymac, France",0.00866159468250869
+categorical__Manufacturing Site_Mylan (formerly Matrix) Nashik,0.007128497704195008
+categorical__Vendor_SCMS from RDC,0.006932494900244865
+categorical__Sub Classification_Adult,0.006319316323144412
+categorical__First Line Designation_No,0.006149623217202264
+categorical__Country_Mozambique,0.0057483128983940555
+categorical__First Line Designation_Yes,0.0053565528203438914
+"categorical__Manufacturing Site_Strides, Bangalore, India.",0.005284547485366101
+categorical__Country_Côte d'Ivoire,0.005165317200042334
+categorical__Manufacturing Site_Roche Basel,0.004521882210938449
+"categorical__Manufacturing Site_Cipla, Goa, India",0.004165113285288873
+categorical__Manufacturing Site_Hetero Unit III Hyderabad IN,0.003932831402532093
+categorical__Country_Zimbabwe,0.0038044049012517763
+"categorical__Manufacturing Site_BI, Ingelheim, Germany",0.0036732741554352222
+categorical__Country_South Africa,0.003577938577415824
+categorical__Manufacturing Site_GSK Aranda,0.0029646107511802394
+categorical__Country_Rwanda,0.0028094013176189255
+categorical__Country_Tanzania,0.0027837701100618833
+"categorical__Manufacturing Site_MSD Midrand, J'burg, SA",0.00277214203105474
+categorical__Country_Burundi,0.0026883582351442557
+categorical__Shipment Mode_Unknown,0.00249440653520887
+categorical__Manufacturing Site_ABBVIE Ludwigshafen Germany,0.0016756972534607948
+categorical__Country_Uganda,0.0016504470862607674
+"categorical__Manufacturing Site_Novartis Pharma AG, Switzerland",0.0016376768259154777
+categorical__Country_Dominican Republic,0.0015135651922033202
+categorical__Country_Zambia,0.0013814524870840975
+categorical__Manufacturing Site_Cipla Ltd A-42 MIDC Mahar. IN,0.0011437119163313608
+"categorical__Vendor_JSI R&T INSTITUTE, INC.",0.0011087558194941812
+categorical__Country_Nigeria,0.0009868493086277372
+categorical__Manufacturing Site_ABBVIE (Abbott) Logis. UK,0.0009713331018610323
+categorical__Country_Ghana,0.000864617728029643
+categorical__Manufacturing Site_GSK Mississauga (Canada),0.0008028196208032454
+categorical__Vendor_Aurobindo Pharma Limited,0.0007442023092602922
+categorical__Shipment Mode_Ocean,0.0007304462342999725
+categorical__Manufacturing Site_Gilead(Nycomed) Oranienburg DE,0.00070396777568853
+categorical__Country_Haiti,0.0005733679693676664
+"categorical__Manufacturing Site_Cipla, Kurkumbh, India",0.0005494717464215079
+categorical__Manufacturing Site_GSK Cape Town Factory (South Africa),0.0005149112158682229
+categorical__Manufacturing Site_GSK Ware (UK),0.00043875115953722683
+"categorical__Vendor_CHEMBIO DIAGNOSTIC SYSTEMS, INC.",0.00039084335850673833
+categorical__Vendor INCO Term_DDP,0.00038780785998091064
+categorical__Vendor_IDA FOUNDATION,0.00034326363962339663
+categorical__Country_Ethiopia,0.0003028117610612337
+categorical__Manufacturing Site_ABBVIE (Abbott) France,0.00030237263226055606
+categorical__Vendor_REINBOLD EXPORT IMPORT,0.00029877191762324885
+categorical__Vendor_ACCOUN NIGERIA LIMITED,0.0002772517699739003
+"categorical__Manufacturing Site_Aurobindo Unit VII, IN",0.00025389627546789246
+"categorical__Manufacturing Site_Boehringer Ing., Koropi, GR",0.0002512927487003833
+"categorical__Manufacturing Site_Aspen-OSD, Port Elizabeth, SA",0.0002374607467788596
+categorical__Country_Botswana,0.00022733935467201673
+categorical__Manufacturing Site_Inverness Japan,0.0002052187674971149
+"categorical__Vendor_Orgenics, Ltd",0.00020062416922097954
+categorical__Vendor_CIPLA LIMITED,0.0001625710002850111
+categorical__Country_Cameroon,0.0001584303161677989
+categorical__Managed By_PMO - US,0.00010833486207326973
+"categorical__Manufacturing Site_Mylan,  H-12 & H-13, India",9.22728921438849e-05
+"categorical__Manufacturing Site_Alere Medical Co., Ltd.",9.205510503831423e-05
+categorical__Managed By_South Africa Field Office,8.839318113315204e-05
+"categorical__Manufacturing Site_Emcure Plot No.P-2, I.T-B.T. Park, Phase II, MIDC, Hinjwadi, Pune, India",7.721745659755591e-05
+categorical__Country_Swaziland,7.687802886348745e-05
+categorical__Country_South Sudan,7.465055231918951e-05
+categorical__Country_Kenya,6.494860846953729e-05
+"categorical__Manufacturing Site_Ranbaxy, Paonta Shahib, India",5.97769054890187e-05
+categorical__Manufacturing Site_Premier Med. Corp Ltd. India,5.726373484981991e-05
+"categorical__Manufacturing Site_MSD, Haarlem, NL",5.1110282772419084e-05
+categorical__Vendor_MERCK SHARP & DOHME IDEA GMBH (FORMALLY MERCK SHARP & DOHME B.V.),4.9700390477405023e-05
+categorical__Manufacturing Site_Ranbaxy per Shasun Pharma,4.701057831659545e-05
+categorical__Vendor INCO Term_CIP,4.6985677051406426e-05
+categorical__Vendor INCO Term_EXW,3.4349755099063855e-05
+"categorical__Manufacturing Site_Hetero, Jadcherla, unit 5, IN",3.209829457637578e-05
+categorical__Vendor_PHARMACY DIRECT,3.154851784202132e-05
+categorical__Vendor INCO Term_DDU,2.9619123481219243e-05
+categorical__Sub Classification_ACT,2.7961547815720445e-05
+categorical__Manufacturing Site_Chembio Diagnostics Sys. Inc.,2.6423903324525682e-05
+categorical__Product Group_HRDT,2.1032228275503045e-05
+categorical__Vendor_MYLAN LABORATORIES LTD (FORMERLY MATRIX LABORATORIES),2.0382386383614352e-05
+"categorical__Manufacturing Site_Micro labs, Verna, Goa, India",1.954685427709043e-05
+categorical__Vendor_Premier Medical Corporation Ltd.,1.947878579599272e-05
+categorical__Manufacturing Site_ABBVIE GmbH & Co.KG Wiesbaden,1.8562813085896517e-05
+categorical__Sub Classification_HIV test,1.7666539492304498e-05
+categorical__Vendor_HETERO LABS LIMITED,1.6561402954534092e-05
+categorical__Product Group_ARV,1.4737458763913805e-05
+categorical__Vendor_Abbott GmbH & Co. KG,1.4477860829989672e-05
+categorical__Vendor_EMCURE PHARMACEUTICALS LTD,1.4150836201094307e-05
+"categorical__Manufacturing Site_Cipla, Patalganga, India",1.4129074906278549e-05
+"categorical__Vendor_Trinity Biotech, Plc",1.24624830067472e-05
+categorical__Product Group_ANTM,1.1989811892280793e-05
+categorical__Sub Classification_Malaria,8.843813548525618e-06
+categorical__Country_Benin,8.447222506637666e-06
+categorical__Country_Sudan,8.115321337089214e-06
+categorical__Country_Vietnam,7.99130143171304e-06
+categorical__Vendor_BIO-RAD LABORATORIES (FRANCE),7.256353161725251e-06
+categorical__Manufacturing Site_Bio-Rad Laboratories,7.098286585536775e-06
+"categorical__Manufacturing Site_Trinity Biotech, Plc",7.015069764452185e-06
+"categorical__Manufacturing Site_Standard Diagnostics, Korea",5.883538625280939e-06
+categorical__Manufacturing Site_Macleods Daman Plant INDIA,5.837276445394424e-06
+categorical__Product Group_ACT,4.567810408760251e-06
+"categorical__Manufacturing Site_KHB Test Kit Facility, Shanghai China",4.091581514725136e-06
+categorical__Vendor_ABBVIE LOGISTICS (FORMERLY ABBOTT LOGISTICS BV),4.004743006714016e-06
+categorical__Vendor_ASPEN PHARMACARE,2.931549712453472e-06
+categorical__Vendor_STRIDES ARCOLAB LIMITED,2.565434961441951e-06
+"categorical__Manufacturing Site_Micro Labs Ltd. (Brown & Burk), India",2.412953814326517e-06
+"categorical__Vendor_Standard Diagnostics, Inc.",2.1807760066832256e-06
+categorical__Sub Classification_HIV test - Ancillary,2.107961007975979e-06
+categorical__Manufacturing Site_Bristol-Myers Squibb Anagni IT,1.846390295473369e-06
+categorical__Manufacturing Site_GSK Crawley,1.6622697486535762e-06
+categorical__Vendor_Orasure Technologies Inc.,1.2525173951038413e-06
+categorical__Manufacturing Site_Ipca Dadra/Nagar Haveli IN,1.1692469379850623e-06
+"categorical__Vendor_SHANGHAI KEHUA BIOENGINEERING CO.,LTD.  (KHB)",4.3113864268947606e-07
+"categorical__Manufacturing Site_Pacific Biotech, Thailand",3.065153547059316e-07
+categorical__Vendor INCO Term_FCA,4.916676889225432e-08
+categorical__Country_Namibia,3.746165369685911e-08
+categorical__Vendor INCO Term_DAP,3.497908659077989e-08
+categorical__Vendor_SUN PHARMACEUTICAL INDUSTRIES LTD (RANBAXY LABORATORIES LIMITED),9.447785867940358e-09
+"categorical__Manufacturing Site_Remedica, Limassol, Cyprus",0.0
+"categorical__Manufacturing Site_OMEGA Diagnostics, UK",0.0
+"categorical__Manufacturing Site_Orasure Technologies, Inc",0.0
+"categorical__Manufacturing Site_GSK, U1, Poznan, Poland",0.0
+"categorical__Manufacturing Site_Orasure Technologies, Inc USA",0.0
+categorical__Manufacturing Site_Premier Medical Corporation,0.0
+categorical__Manufacturing Site_Ranbaxy Fine Chemicals LTD,0.0
+categorical__Manufacturing Site_Ranbaxy per Shasun Pharma Ltd,0.0
+categorical__Manufacturing Site_Roche Madrid,0.0
+"categorical__Manufacturing Site_Janssen Ortho LLC, Puerto Rico",0.0
+"categorical__Manufacturing Site_Weifa A.S., Hausmanngt. 6, P.O. Box 9113 GrÃ_x0083_Â_x0083_Ã_x0082_Â¸nland, 0133, Oslo, Norway",0.0
+categorical__Manufacturing Site_bioLytical Laboratories,0.0
+categorical__Vendor INCO Term_CIF,0.0
+categorical__Country_Afghanistan,0.0
+categorical__Managed By_Ethiopia Field Office,0.0
+categorical__Managed By_Haiti Field Office,0.0
+categorical__Manufacturing Site_Not Applicable,0.0
+"categorical__Manufacturing Site_Micro Labs, Hosur, India",0.0
+categorical__Manufacturing Site_Mepro Pharm Wadhwan Unit II,0.0
+categorical__Manufacturing Site_Gland Pharma Ltd Pally Factory,0.0
+categorical__Manufacturing Site_Inverness USA,0.0
+"categorical__Manufacturing Site_Janssen-Cilag, Latina, IT",0.0
+categorical__Manufacturing Site_MSD Elkton USA,0.0
+categorical__Manufacturing Site_INVERNESS ORGENICS LINE,0.0
+"categorical__Manufacturing Site_MSD Manati, Puerto Rico, (USA)",0.0
+categorical__Manufacturing Site_INVERNESS ANY,0.0
+categorical__Manufacturing Site_Human Diagnostic,0.0
+"categorical__Manufacturing Site_MSD Patheon, Canada",0.0
+categorical__Manufacturing Site_MSD South Granville Australia,0.0
+categorical__Manufacturing Site_MedMira Inc.,0.0
+categorical__Manufacturing Site_Meditab (for Cipla) Daman IN,0.0
+"categorical__Manufacturing Site_Guilin OSD site, No 17, China",0.0
+"categorical__Manufacturing Site_Medochemie Factory A, CY",0.0
+"categorical__Manufacturing Site_Gland Pharma, Hyderabad, IN",0.0
+"categorical__Manufacturing Site_Medopharm Malur Factory, INDIA",0.0
+"categorical__Manufacturing Site_Novartis Pharma Suffern, USA",0.0
+categorical__Vendor_SUB-SAHARAN BIOMEDICAL P.L.C.,0.0
+categorical__Manufacturing Site_GSK Barnard Castle UK,0.0
+categorical__Vendor_ABBOTT LOGISTICS B.V.,0.0
+"categorical__Vendor_ACCESS BIO, INC.",0.0
+categorical__Vendor_ACOUNS NIGERIA LTD,0.0
+categorical__Vendor_ACTION MEDEOR E.V.,0.0
+categorical__Vendor_AHN (PTY) LTD (AKA UCB (S.A.),0.0
+categorical__Vendor_AMSTELFARMA B.V.,0.0
+categorical__Vendor_AUROBINDO PHARAM (SOUTH AFRICA),0.0
+categorical__Vendor_B&C GROUP S.A.,0.0
+categorical__Vendor_BIO-RAD LABORATORIES PTY LTD. (SOUTH AFRICA),0.0
+categorical__Vendor_BIOLYTICAL LABORATORIES INC.,0.0
+categorical__Vendor_BRISTOL-MYERS SQUIBB,0.0
+categorical__Vendor_BUNDI INTERNATIONAL DIAGNOSTICS LTD,0.0
+categorical__Vendor_CENTRAL PHARMACEUTICAL COMPANY NO. 1,0.0
+categorical__Vendor_ETHNOR DEL ISTMO S.A.,0.0
+categorical__Vendor_EY Laboratories,0.0
+"categorical__Vendor_GILEAD SCIENCES IRELAND, INC.",0.0
+"categorical__Vendor_ABBVIE, SRL (FORMALLY ABBOTT LABORATORIES INTERNATIONAL CO.)",0.0
+categorical__Vendor_ABBOTT LABORATORIES (PUERTO RICO),0.0
+"categorical__Manufacturing Site_EY Laboratories, USA",0.0
+categorical__Product Group_MRDT,0.0
+categorical__Country_Guatemala,0.0
+categorical__Country_Guinea,0.0
+categorical__Country_Kazakhstan,0.0
+categorical__Country_Kyrgyzstan,0.0
+categorical__Country_Lebanon,0.0
+categorical__Country_Lesotho,0.0
+categorical__Country_Liberia,0.0
+categorical__Country_Libya,0.0
+categorical__Country_Malawi,0.0
+categorical__Country_Mali,0.0
+categorical__Country_Pakistan,0.0
+categorical__Country_Senegal,0.0
+categorical__Country_Sierra Leone,0.0
+categorical__Country_Togo,0.0
+categorical__Country_Burkina Faso,0.0
+categorical__Vendor_GLAXOSMITHKLINE EXPORT LIMITED,0.0
+categorical__Vendor_HUMAN GMBH,0.0
+categorical__Vendor_Hoffmann-La Roche ltd Basel,0.0
+categorical__Vendor_IDIS LIMITED,0.0
+categorical__Vendor_SWORDS LABORATORIES,0.0
+categorical__Vendor_SYSMEX AMERICA INC,0.0
+categorical__Vendor_THE MEDICAL EXPORT GROUP BV,0.0
+categorical__Vendor_TURE PHARMACEUTICALS & MEDICAL SUPPLIES P.L.C.,0.0
+categorical__Vendor_WAGENIA,0.0
+categorical__Vendor_ZEPHYR BIOMEDICALS,0.0
+categorical__Manufacturing Site_ABBSP,0.0
+categorical__Manufacturing Site_ABBVIE (Abbott) Japan Co. Ltd.,0.0
+categorical__Manufacturing Site_ABBVIE (Abbott) St. P'burg USA,0.0
+categorical__Manufacturing Site_ABBVIE Labs North Chicago US,0.0
+"categorical__Manufacturing Site_Access BIO, L.C.",0.0
+categorical__Country_Angola,0.0
+"categorical__Manufacturing Site_BMS Evansville, US",0.0
+categorical__Manufacturing Site_BUNDI INTERNATIONAL DIAGNOSTICS LTD,0.0
+categorical__Manufacturing Site_Boehringer Ingelheim Roxane US,0.0
+categorical__Vendor_SETEMA LIMITED PLC,0.0
+categorical__Country_Belize,0.0
+categorical__Vendor_RANBAXY Fine Chemicals LTD.,0.0
+categorical__Vendor_LAWRENCE LABORATORIES (SUBSIDIARY OF BRISTOL MYERS SQUIBB),0.0
+categorical__Vendor_IMRES B.V.,0.0
+categorical__Vendor_INTERNATIONAL HEALTHCARE DISTRIBUTORS,0.0
+categorical__Vendor_INVERNESS MEDICAL INNOVATIONS HONG KONG LTD,0.0
+categorical__Vendor_INVERNESS MEDICAL INNOVATIONS SOUTH AFRICA (PTY) LTD,0.0
+categorical__Vendor_JANSSEN SCIENCES IRELAND UC (FORMERLY JANSSEN R&D IRELAND),0.0
+categorical__Vendor_KAS MEDICS LIMITED,0.0
+categorical__Vendor_MEDMIRA EAST AFRICA LTD.,0.0
+"categorical__Vendor_PUETRO RICO PHARMACEUTICAL, INC.",0.0
+categorical__Vendor_MICRO LABS LIMITED,0.0
+categorical__Vendor_MISSIONPHARMA A/S,0.0
+"categorical__Vendor_MSD LATIN AMERICA SERVICES, S. DE R.L. DE C.V.",0.0
+categorical__Vendor_NOVARTIS PHARMA SERVICES AG,0.0
+categorical__Vendor_OMEGA DIAGNOSTICS LTD,0.0
+categorical__Vendor_PLURIPHARM S.A.,0.0
+"categorical__Vendor_RAININ INSTRUMENT, LLC.",0.0

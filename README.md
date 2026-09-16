@@ -302,25 +302,47 @@ high-cost HRDT records.
 
 ## Project Structure
 
-``` text
 logistics-data-analyst-internship/
 │
 ├── data/
+│   ├── SCMS_Delivery_History_Raw_Data.xlsx
 │   └── SCMS_Delivery_History_Cleaned.csv
 │
 ├── reports/
-│   ├── Week_1_Strategic_Planning_Logistics.docx
-│   └── Week_2_Data_Cleaning_Preprocessing_Logistics_Updated.docx
+│   └── week3_visualizations/
+│       ├── 01_on_time_vs_delayed.png
+│       ├── 02_shipment_volume_by_mode.png
+│       ├── 03_delivery_delay_distribution.png
+│       ├── 04_average_delay_by_mode.png
+│       ├── 05_freight_cost_by_mode.png
+│       ├── 06_freight_cost_per_kg_distribution.png
+│       ├── 07_top_10_countries.png
+│       ├── 08_on_time_rate_by_mode.png
+│       ├── 09_weight_vs_freight_cost.png
+│       └── 10_yearly_shipment_trend.png
+│
+├── week3_outputs/
+│   ├── correlation_matrix.csv
+│   ├── country_analysis.csv
+│   ├── freight_analysis.csv
+│   ├── freight_cost_outliers.csv
+│   ├── product_group_analysis.csv
+│   ├── shipment_mode_analysis.csv
+│   └── vendor_analysis.csv
 │
 ├── scripts/
 │   ├── data_cleaning.py
 │   ├── validate_cleaned_data.py
 │   ├── quality_analysis.py
-│   └── logistics_analysis.py
+│   ├── logistics_analysis.py
+│   ├── week3_analysis.py
+│   └── week3_eda_visualization.py
 │
+├── analysis_findings.docx
+├── Week_1_Strategic_Planning_Logistics.docx
+├── Week_2_Data_Cleaning_Preprocessing_Logistics_Updated.docx
 ├── .gitignore
 └── README.md
-```
 
 ## Technologies Used
 
